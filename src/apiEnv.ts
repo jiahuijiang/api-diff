@@ -164,7 +164,7 @@ export function argvToApiEnv(argv?: any, exitOnFailure?: boolean): ApiEnv {
   _.forEach(config.hosts, (hostEntry: ConfigHostEntry, hostKey: string) => {
     // look through our config file for named host entries,
     // see if one of them like prod: {} was specified on the commandline
-    if (argv[hostKey]) {
+    if (argv.key_env === hostKey) {
       // This gets triggered if a user specifies more than one hostEntry command
       // line option, like --prod and --staging (if both are defined in their config)
       if (aliasedHostEntry) {
